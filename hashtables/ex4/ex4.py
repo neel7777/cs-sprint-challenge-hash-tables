@@ -4,6 +4,21 @@ def has_negatives(a):
     """
     # Your code here
 
+    nums = {}
+
+    for i in a:
+        if i not in nums:
+            nums[i] = None
+        if (i * -1) in nums:
+            nums[i * -1] = i
+            nums[i] = i * -1
+
+    result = []
+
+    for i in nums:
+        if i > 0 and nums[i] is not None:
+            result.append(i)
+
     return result
 
 
